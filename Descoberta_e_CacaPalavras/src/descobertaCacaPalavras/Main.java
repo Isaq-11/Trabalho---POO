@@ -23,50 +23,34 @@ public class Main {
 					System.out.println("Parabéns! Você acertou a palavra!!");
 					break;
 				}
-//				else {
-//					String respostaErrada = scanner.nextLine();
-//					System.out.println();
+				else {
+					System.out.println("Resposta errada! Deseja uma dica?");
+					String respostaErrada = scanner.nextLine();
+					if(respostaErrada.equals("sim")) {
+						char [] letrasPalavra = palavraSorteada.toCharArray();
+						System.out.printf("A primeira letra é %c e a última é %c", letrasPalavra[0], 
+								letrasPalavra[letrasPalavra.length]);
+					}
+					
 				}
 			}
 		}
-	
+	}
 	
 	
 	
 	private static String embaralharEMostrarPalavra(String palavra) {
-		char [] letras_Separadas = palavra.toCharArray();
-		for(int x = 0; x < letras_Separadas.length; x ++) {
+		char [] letrasSeparadas = palavra.toCharArray();
+		for(int x = 0; x < letrasSeparadas.length; x ++) {
 			int indice_Aleatorio = new Random().nextInt(palavra.length() -1);
 			
-			char aux = letras_Separadas[x];
-			letras_Separadas[x] = letras_Separadas[indice_Aleatorio];
-			letras_Separadas[indice_Aleatorio] = aux;
+			char aux = letrasSeparadas[x];
+			letrasSeparadas[x] = letrasSeparadas[indice_Aleatorio];
+			letrasSeparadas[indice_Aleatorio] = aux;
 			
 		}
-		System.out.println(new String (letras_Separadas));
-		return new String(letras_Separadas);
+		System.out.println(new String (letrasSeparadas));
+		return new String(letrasSeparadas);
 	}
 	
-	
-	
-	
-	
-	
-	private static String embaralhar(String palavra) {
-		char[] palavraArray = palavra.toCharArray();
-		for(int x=0; x<palavraArray.length; x++) {
-			int indiceAleatorio = new Random().nextInt(palavra.length()-1);
-			System.out.println(indiceAleatorio);
-			
-			
-			char temp = palavraArray[x];
-			palavraArray[x] = palavraArray[indiceAleatorio];
-			palavraArray[indiceAleatorio] = temp;
-			
-			System.out.println(new String(palavraArray));
-		}
-		return new String(palavraArray);
-	}
-
-
 }
